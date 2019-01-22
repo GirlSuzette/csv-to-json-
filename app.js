@@ -27,8 +27,10 @@ csv()
             // console.log('The file has been saved!');
         });
 
-        fs.readFile('./file.json', "utf8", (err, obj) => {
-            JSON.parse(obj).map(i => console.log(i.id))
+        fs.readFile('./file.json', "utf8", (err, data) => {
+            if (err) throw err;
+            var obj = JSON.parse(data)
+            obj.data.map(i => console.log(i.id))
         })
 
     })
